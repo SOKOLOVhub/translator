@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>translation</title>
+</head>
+<body>
+    <textarea id="in" value=""></textarea>
+    <button onclick="translation()" style="height: 30px;">перевести</button>
+    <textarea id="wiwod" value=""></textarea>
+    <script>
+        var Betta=[
+        'а', 'б', 'в', 'г','д','е',
+        'ё','ж','з','і','й','к','л','м',
+        'н','о','п','р','с','т','у','ў',
+        'ф','х','ц','ч','ш','ы','ь','э',
+        'ю','я']
+        function translation(){
+            var s=String(document.getElementById("in").value);
+            //console.log(s);
+            var i, j;
+            var pr="";
+            var r;
+            r=String("");
+            s+=" ";
+            for (i=0;i<s.length;i++)
+            {
+                //console.log('s[i]='+s[i]);
+                if (s[i]!=" " && s[i]!='.' && s[i]!=',' && s[i]!='-' && s[i]!=':' && s[i]!="!" && s[i]!='?' && s[i]!="")
+                {
+                    r+=s[i];
+                }
+                else
+                {
+                    pr+=Betta[Number(r)-1];
+                    if (s[i]!=' ') pr+=s[i];
+                    r="";
+                }
+                //console.log(r);
+            }
+            var f="";
+            //document.getElementById("in").value="";
+            for (i=0;i<pr.length;i++)
+            {
+                if (pr[i]=='u' && pr[i+1]=='n' && pr[i+2]=='d' && pr[i+3]=='e' && pr[i+4]=='f' && pr[i+5]=='i' && pr[i+6]=='n' && pr[i+7]=='e' && pr[i+8]=='d') 
+                {
+                    //console.log("yes");
+                    i+=8;
+                }
+                    else
+                {
+                    f+=pr[i];
+                }
+            }
+            document.getElementById('wiwod').value=f;
+            //console.log(pr);
+         }
+    </script>
+</body>
+</html>
